@@ -5,7 +5,7 @@ import utils, math
 
 #test
 testString = "0 "
-f = open("NoLookTesting", 'w')
+f = open("noLookTest", 'w')
 
 # variables 
 frame_counter =0
@@ -142,14 +142,12 @@ with map_face_mesh.FaceMesh(refine_landmarks=True, min_detection_confidence =0.5
             if IsBlinking(mesh_coords,RIGHT_EYE,LEFT_EYE):
                 CEF_COUNTER +=1
 
-                #test
-                #testString += " 1"
-
-                if CEF_COUNTER>fps*0.5:
-                    utils.colorBackgroundText(frame,  f'Warning!', FONTS, 2, (30, 450), 2, utils.RED, pad_x=6, pad_y=6, )
-                if CEF_COUNTER>fps*2:
-                    utils.colorBackgroundText(frame,  f'ALARM!', FONTS, 2, (400, 450), 2, utils.RED, pad_x=10, pad_y=10, )
+                if CEF_COUNTER>fps*1.5:
+                    utils.colorBackgroundText(frame,  f'Wake up!', FONTS, 2, (400, 450), 2, utils.RED, pad_x=10, pad_y=10, )
+                    testString +=' 4'
                 else:
+                  #test
+                  testString += " 1"
                   utils.colorBackgroundText(frame,  f'Blink', FONTS, 1.7, (30, 200), 2, utils.YELLOW, pad_x=6, pad_y=6, )
             else:
                 if CEF_COUNTER>CLOSED_EYES_FRAME:
